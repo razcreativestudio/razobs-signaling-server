@@ -5,7 +5,7 @@ const WebSocket = require('ws');
  * Enables cross-network P2P connections
  */
 
-const PORT = process.env.PORT || 8080;
+const PORT = parseInt(process.env.PORT) || 8080;
 const server = new WebSocket.Server({ port: PORT });
 
 // Room management: roomId -> Set of WebSocket clients
@@ -19,9 +19,9 @@ console.log(`🚀 RAZ OBS Signaling Server running on port ${PORT}`);
 server.on('connection', (ws, req) => {
     const clientId = generateId();
     const clientIp = req.socket.remoteAddress;
-
+    
     console.log(`✅ Client connected: ${clientId} from ${clientIp}`);
-
+    
     // Send welcome message
     ws.send(JSON.stringify({
         type: 'welcome',
@@ -65,21 +65,21 @@ function handleMessage(ws, data, clientId) {
         case 'join':
             joinRoom(ws, data.roomId, clientId, data.role);
             break;
-
+            
         case 'leave':
             leaveRoom(ws, data.roomId, clientId);
             break;
-
+            
         case 'offer':
         case 'answer':
         case 'ice-candidate':
             forwardToRoom(data.roomId, ws, data, clientId);
             break;
-
+            
         case 'heartbeat':
             ws.send(JSON.stringify({ type: 'heartbeat-ack' }));
             break;
-
+            
         default:
             console.warn(`⚠️ Unknown message type: ${data.type}`);
     }
@@ -106,7 +106,7 @@ function joinRoom(ws, roomId, clientId, role = 'viewer') {
     // Add client to room
     const room = rooms.get(roomId);
     room.add(ws);
-
+    
     // Track client info
     clients.set(ws, { roomId, clientId, role });
 
@@ -148,7 +148,7 @@ function leaveRoom(ws, roomId, clientId) {
         roomSize: room.size
     });
 
-    // Clean up empty rooms
+    // Clean up empty empty rooms
     if (room.size === 0) {
         rooms.delete(roomId);
         console.log(`🗑️ Room deleted: ${roomId}`);
@@ -168,8 +168,8 @@ function forwardToRoom(roomId, sender, data, senderId) {
     }
 
     const room = rooms.get(roomId);
-
-    // Add sender info to data
+    
+    //Add sender info to data
     const forwardData = {
         ...data,
         from: senderId,
@@ -221,20 +221,9 @@ process.on('SIGTERM', () => {
 });
 
 process.on('SIGINT', () => {
-    console.log('\n⚠️ SIGINT received, closing server...');
+    console.log('\n⚠️ SIGTERM received, closing server...');
     server.close(() => {
         console.log('✅ Server closed');
         process.exit(0);
     });
 });
-
-// Health check endpoint (for some platforms)
-if (process.env.NODE_ENV === 'production') {
-    const http = require('http');
-    http.createServer((req, res) => {
-        if (req.url === '/health') {
-            res.writeHead(200);
-            res.end('OK');
-        }
-    }).listen(PORT + 1);
-}
