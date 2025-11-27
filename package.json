@@ -1,0 +1,22 @@
+{
+  "name": "razobs-signaling-server",
+  "version": "1.0.0",
+  "description": "WebSocket signaling server for RAZ OBS Tools cross-network P2P streaming",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["webrtc", "signaling", "websocket", "p2p", "streaming"],
+  "author": "RAZ",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
