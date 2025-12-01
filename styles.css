@@ -1,0 +1,367 @@
+/* Floral Theme CSS */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Amiri:wght@400;700&display=swap');
+
+:root {
+    --floral-pink: #FFB6C1;
+    --floral-white: #FFF8DC;
+    --floral-green: #98FB98;
+    --floral-purple: #DDA0DD;
+    --deep-pink: #FF69B4;
+    --text-dark: #2F4F2F;
+    --text-light: #F5F5DC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, var(--floral-pink), var(--floral-white), var(--floral-green));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: var(--text-dark);
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#presentation {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide {
+    position: absolute;
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 3px solid var(--floral-pink);
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    z-index: 10;
+}
+
+.slide-content {
+    text-align: center;
+    padding: 40px;
+    max-width: 600px;
+}
+
+.islamic-decoration {
+    margin-bottom: 30px;
+}
+
+.bismillah {
+    font-family: 'Amiri', serif;
+    font-size: 2.5rem;
+    color: var(--deep-pink);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: var(--deep-pink);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.floral-divider {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--floral-pink), var(--floral-purple), var(--floral-green));
+    margin: 20px auto;
+    border-radius: 2px;
+    position: relative;
+}
+
+.floral-divider::before,
+.floral-divider::after {
+    content: '❀';
+    position: absolute;
+    top: -10px;
+    font-size: 1.5rem;
+    color: var(--deep-pink);
+}
+
+.floral-divider::before { left: -20px; }
+.floral-divider::after { right: -20px; }
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--deep-pink);
+    margin-bottom: 30px;
+}
+
+.names-section {
+    margin: 40px 0;
+}
+
+.couple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.person {
+    background: linear-gradient(135deg, var(--floral-white), var(--floral-pink));
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+    border: 2px solid var(--floral-purple);
+}
+
+.person h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.person p {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+.ampersand {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: var(--deep-pink);
+    transform: rotate(-10deg);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.detail-item {
+    background: linear-gradient(135deg, var(--floral-white), var(--floral-green));
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--floral-pink);
+    transition: transform 0.3s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-5px);
+}
+
+.detail-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.detail-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.detail-item p {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+.rsvp-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.contact-info {
+    background: linear-gradient(135deg, var(--floral-white), var(--floral-purple));
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+    border: 2px solid var(--floral-pink);
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.closing-prayer {
+    margin-top: 40px;
+}
+
+.closing-prayer p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.prayer {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    color: var(--deep-pink);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.navigation {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, var(--floral-pink), var(--deep-pink));
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.slide-indicators {
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--floral-pink);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+}
+
+.indicator.active {
+    opacity: 1;
+    transform: scale(1.3);
+    background: var(--deep-pink);
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slide {
+        width: 95%;
+        height: 85vh;
+    }
+
+    .slide-content {
+        padding: 20px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .bismillah {
+        font-size: 2rem;
+    }
+
+    .couple {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .person {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .navigation {
+        bottom: 20px;
+        padding: 10px 20px;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Floral Theme</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="presentation">
+        <!-- Slide 1: Opening -->
+        <div class="slide active" id="slide1">
+            <div class="slide-content">
+                <div class="islamic-decoration">
+                    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+                </div>
+                <h1 class="main-title">Undangan Pernikahan</h1>
+                <div class="floral-divider"></div>
+                <p class="subtitle">Dengan memohon rahmat dan ridho Allah SWT</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Names -->
+        <div class="slide" id="slide2">
+            <div class="slide-content">
+                <h2 class="section-title">Kami Mengundang</h2>
+                <div class="names-section">
+                    <div class="couple">
+                        <div class="person">
+                            <h3>Nama Pengantin Wanita</h3>
+                            <p>Putri dari Bapak [Nama Ayah] & Ibu [Nama Ibu]</p>
+                        </div>
+                        <div class="ampersand">&</div>
+                        <div class="person">
+                            <h3>Nama Pengantin Pria</h3>
+                            <p>Putra dari Bapak [Nama Ayah] & Ibu [Nama Ibu]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Details -->
+        <div class="slide" id="slide3">
+            <div class="slide-content">
+                <h2 class="section-title">Detail Acara</h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <h4>Hari/Tanggal</h4>
+                        <p>Jumat, 15 Desember 2025</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🕐</div>
+                        <h4>Waktu</h4>
+                        <p>08:00 WIB s.d. Selesai</p>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">📍</div>
+                        <h4>Tempat</h4>
+                        <p>Gedung Serbaguna<br>Masjid Al-Ikhlas<br>Jl. Contoh No. 123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: RSVP -->
+        <div class="slide" id="slide4">
+            <div class="slide-content">
+                <h2 class="section-title">Konfirmasi Kehadiran</h2>
+                <p class="rsvp-text">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada kedua mempelai.</p>
+                <div class="contact-info">
+                    <p>Untuk konfirmasi kehadiran, silakan hubungi:</p>
+                    <p><strong>Penanggung Jawab:</strong> [Nama Kontak]</p>
+                    <p><strong>Telepon:</strong> [Nomor Telepon]</p>
+                    <p><strong>WhatsApp:</strong> [Nomor WhatsApp]</p>
+                </div>
+                <div class="closing-prayer">
+                    <p>Atas kehadiran dan do'a restu Bapak/Ibu/Saudara/i,<br>kami ucapkan terima kasih.</p>
+                    <p class="prayer">وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button id="prevBtn" class="nav-btn">←</button>
+        <div class="slide-indicators">
+            <span class="indicator active" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+            <span class="indicator" data-slide="3"></span>
+            <span class="indicator" data-slide="4"></span>
+        </div>
+        <button id="nextBtn" class="nav-btn">→</button>
+    </div>
+
+    <!-- 3D Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
